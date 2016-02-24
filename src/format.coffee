@@ -26,5 +26,17 @@ class Format
     return "#{data.file}:#{data.line}"
 
   f: (content)->
-    return "#{@getTime()} [#{@getInfoStack()}]>>#{content}"
+    contentType = typeof content
+    
+    switch contentType
+      when "string"
+        str = content
+      when "function"
+        str = content.toString()
+      when "object"
+        str = JSON.stringify content
+      else
+        str = ""
+
+    return "#{@getTime()} [#{@getInfoStack()}]>>#{str}"
 module.exports = new Format()
