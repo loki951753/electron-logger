@@ -35,8 +35,10 @@ class Format
         str = content.toString()
       when "object"
         str = JSON.stringify content
+      when "undefined"
+        str = "undefined"
       else
-        str = ""
+        str = content
 
     return "#{@getTime()} [#{@getInfoStack()}]>>#{str}"
 module.exports = new Format()

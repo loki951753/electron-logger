@@ -1,6 +1,6 @@
 {
   "name": "electron-logger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a simple tool to help my electron develop work and keep user client running log.",
   "main": "index.js",
   "scripts": {

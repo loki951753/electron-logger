@@ -23,19 +23,19 @@ _switch = (status)->
     #if status not specified, switch it
     _status ^= 1
 
-_logger = (level = 1, content = "")->
+_logger = (level = 1, content)->
   if _status
     levelColor = COLORS[level]
     output.log format.f(content), levelColor
 
 module.exports = 
-  debug: (content = "")->
+  debug: (content)->
     _logger(LEVELS.DEBUG, content) if LEVELS[setting.level] >= LEVELS.DEBUG
 
-  info: (content = "")->
+  info: (content)->
     _logger(LEVELS.INFO, content) if LEVELS[setting.level] >= LEVELS.INFO
 
-  error: (content = "")->
+  error: (content)->
     _logger(LEVELS.ERROR, content)
 
   setOutput: (config)->
