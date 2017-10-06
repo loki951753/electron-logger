@@ -11,7 +11,11 @@ class Format
     
   getTime: ()->
     time = new Date()
-    return "#{time.getHours()}:#{time.getMinutes()}:#{time.getSeconds()}:#{time.getMilliseconds()}"
+    year = time.getFullYear()
+    month = (time.getMonth()*1)+1
+    day = if time.getDate() * 1 < 10 then '0' + time.getDate() else time.getDate()
+    date = "#{@year}/#{@month}/#{@day}"
+    return "#{@date} #{time.getHours()}:#{time.getMinutes()}:#{time.getSeconds()}:#{time.getMilliseconds()}"
 
   getInfoStack: ()->
     s = (new Error()).stack.split('\n')[5]
